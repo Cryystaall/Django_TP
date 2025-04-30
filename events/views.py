@@ -3,10 +3,8 @@ from .models import Event, Participation
 from .forms import ParticipationForm
 from django.contrib.auth.decorators import login_required
 
-# events/views.py
-from django.shortcuts import render
-from .models import Event
 
+@login_required
 def event_list(request):
     events = Event.objects.all()
     
@@ -17,6 +15,7 @@ def event_list(request):
     return render(request, 'events/event_list.html', {'events': events})
 
 
+@login_required
 def event_detail(request, id_event):
     event = get_object_or_404(Event, id=id_event)
     
