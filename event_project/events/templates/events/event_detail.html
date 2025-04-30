@@ -1,0 +1,16 @@
+<!-- event_detail.html -->
+{% extends 'base_generic.html' %}
+
+{% block title %}Détail de l'événement{% endblock %}
+
+{% block content %}
+    <h2>{{ event.name }}</h2>
+    <p>Date : {{ event.date }}</p>
+    <p>Description : {{ event.description }}</p>
+    <p>Participants confirmés : {{ event.confirmed_participants }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirmer ma participation</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- events/templates/events/event_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des événements</title>
+</head>
+<body>
+    <h1>Liste des événements</h1>
+    <ul>
+        {% for event in events %}
+            <li>
+                {{ event.name }} - {{ event.date }}
+                - Participants confirmés : {{ event.confirmed_participants }}
+                <a href="{% url 'event_detail' event.id %}">Détails</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
